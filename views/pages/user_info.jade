@@ -1,0 +1,50 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        .panel.panel-success
+          .panel-heading
+            h3.panel-title 我的信息
+          .panel-body
+            dl.dl-horizontal
+              dt ID :
+              dd= _user._id
+              dt 账号 :
+              dd= _user.username
+              dt 地址 :
+              dd= _user.address
+              dt 邮箱 :
+              dd= _user.email
+              dt 创建时间 :
+              dd= moment(_user.meta.createAt).format("YYYY/MM/DD HH:mm:ss")
+              //dt updateAt :
+              //dd= moment(user.meta.updateAt).format("YYYY/MM/DD HH:mm:ss")
+          .panel-footer
+            p 上次修改时间：#{moment(_user.meta.updateAt).format("YYYY/MM/DD HH:mm:ss")}
+              a.btn.btn-primary.pull-right(href='/user/show/update/' + _user.username) 修改
+
+        .panel.panel-success
+          .panel-heading
+            h4.panel-title 我的博客
+          .panel-body
+            .col-md-12
+              each blog in blogs
+                .panel.panel-success
+                  .panel-heading
+                    a(href='/comment/show/' + blog._id)
+                      h3.panel-title #{blog.title}
+                        small.pull-right #{blog.category}
+                  .panel-body
+                    p #{blog.content}
+                  .panel-footer
+                    span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+                    span 作者：#{blog.author}
+                    a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+                    span.pull-right &nbsp;&nbsp;&nbsp;
+                    a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+                    span.pull-right &nbsp;&nbsp;&nbsp;
+                    a.pull-right(href='/blog/show/update?title=#{blog.title}&username=#{_user.username}') 修改
+          .panel-footer
+

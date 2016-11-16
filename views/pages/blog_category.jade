@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        ul.nav.nav-tabs
+          li
+            a(href="/blog/show/paging/1") 博客
+          li.active
+            a(href="/blog/show/category") 分类
+          li
+            a(href="/blog/show/new") 添加
+      br
+      br
+      br
+      .col-md-12
+        .panel-group(id="panel-father")
+      - var category = ['HTML', 'CSS', 'Javascript', 'PHP', 'Java', 'Nodejs'];
+      - for (var i = 0; i < category.length; i++) {
+      .panel.panel-default
+        .panel-heading
+          a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
+        .panel-collapse.in(id="panel-element-" + category[i])
+          .panel-body
+            each blog in blogs
+              if (blog.category == category[i])
+                .panel.panel-success
+                  .panel-heading
+                    a(href='/comment/show/' + blog._id)
+                      h3.panel-title #{blog.title}
+                        small.pull-right #{blog.category}
+                  //.panel-body
+                  //  p #{blog.content}
+                  .panel-footer
+                    span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+                    span 作者：#{blog.author}
+                    a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+                    span.pull-right &nbsp;&nbsp;&nbsp;
+                    a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+      - }

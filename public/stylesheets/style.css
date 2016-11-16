@@ -1,0 +1,62 @@
+body {
+    padding-left: 30px;
+    padding-right: 30px;
+    font: 14px "Consolas", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    text-shadow: 5px 5px 5px #686f73;
+}
+
+a {
+    color: #00B7FF;
+}
+
+p {
+    /*color: #34fdf6;*/
+}
+
+img {
+    /*transform:rotate(10deg);*/
+    /*-ms-transform:rotate(10deg); !* IE 9 *!*/
+    /*-webkit-transform:rotate(10deg); !* Safari and Chrome *!*/
+    /*box-shadow: 10px 10px 50px #888888;*/
+    /*border:1px solid;*/
+    /*border-radius:8px;*/
+}
+
+div.card {
+    width: 250px;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+div.card:hover {
+    width: 300px;
+    height: 300px;
+    /*-webkit-transform: rotate(360deg); !* Chrome, Safari, Opera *!*/
+    /*transform: rotate(360deg);*/
+}
+
+div.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+}
+
+div.container {
+    padding: 5px;
+}
+
+div.column {
+    -webkit-column-count: 4; /* Chrome, Safari, Opera */
+    -moz-column-count: 4; /* Firefox */
+    column-count: 4;
+
+    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 40px; /* Firefox */
+    column-gap: 40px;
+}

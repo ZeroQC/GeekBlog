@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        .panel.panel-success
+          .panel-heading
+            h3.panel-title #{blog.title}
+              small.pull-right #{blog.category}
+          .panel-body
+            p #{blog.content}
+          .panel-footer
+            span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+            span 作者：#{blog.author}
+            a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+            span.pull-right &nbsp;&nbsp;&nbsp;
+            a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title 评论内容
+          .panel-body
+            each comment in comments
+              .panel.panel-info
+                .panel-body
+                  p 评论：#{comment.content}
+                .panel-footer
+                  p 时间：#{moment(comment.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')}
+                    span.pull-right by：#{comment.fromName}
+          .panel-footer
+            p 当前时间：#{moment(Date.now()).format('YYYY/MM/DD HH:mm:ss')}
+              a.btn.btn-primary.pull-right(href='#', data-toggle="modal", data-target="#addComment") 评论
+
+  .modal.fade(id="addComment", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        form.form-horizontal(method="POST", action="/comment/add")
+          .modal-header
+            button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+            h4.modal-title(id="myModalLabel") 添加评论
+          .modal-body
+            .form-group
+              label.col-sm-2.control-label 博客ID
+              .col-sm-10
+                input.form-control(type="text", id="blogId", name="blog[_id]", value="#{blog._id}", readonly="true")
+            .form-group
+              label.col-sm-2.control-label 博客标题
+              .col-sm-10
+                input.form-control(type="text", id="blogTitle", name="blog[title]", value="#{blog.title}", readonly="true")
+            .form-group
+              label.col-sm-2.control-label 评论内容
+              .col-sm-10
+                input.form-control(type="text", id="commentContent", name="comment[content]")
+          .modal-footer
+            button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+            button.btn.btn-success(type="submit") 确认

@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-6
+        form.form-horizontal(method="POST", action="/blog/update")
+          .modal-body
+            .form-group
+              label.col-sm-2.control-label 标题
+              .col-sm-10
+                input#title.form-control(type="text", name="blog[title]", value="#{blog_title}", readonly="true")
+            .form-group
+              label.col-sm-2.control-label 内容
+              .col-sm-10
+                textarea#content.form-control(name="blog[content]", rows="7")
+            .form-group
+              label.col-sm-2.control-label 类别
+              .col-sm-10
+                select.form-control(name="blog[category]")
+                  option(value="HTML") HTML
+                  option(value="CSS") CSS
+                  option(value="Javascript") Javascript
+                  option(value="Nodejs") Nodejs
+                  option(value="Java") Java
+                  option(value="PHP") PHP
+          .modal-footer
+            a.btn.btn-default(href="/user/info/" + username) 关闭
+            button.btn.btn-success(type="submit") 发布

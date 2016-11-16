@@ -1,0 +1,75 @@
+extends ../layout
+
+block content
+  .container
+    .row.clearfix
+      .col-md-12
+        .carousel.slide(id="carousel-96764")
+          ol.carousel-indicators
+            li.active(data-slide-to="0", data-target="#carousel-96764")
+            li(data-slide-to="1", data-target="#carousel-96764")
+            li(data-slide-to="2", data-target="#carousel-96764")
+          .carousel-inner
+            .item.active
+              img(src="/images/first.jpg")
+              .carousel-caption
+                h4 First Thumbnail label
+                p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            .item
+              img(src="/images/second.jpg")
+              .carousel-caption
+                h4 Second Thumbnail label
+                p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            .item
+              img(src="/images/third.jpg")
+              .carousel-caption
+                h4 Third Thumbnail label
+                p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          a.left.carousel-control(href="#carousel-96764", data-slide="prev")
+            span.glyphicon.glyphicon-chevron-left
+          a.right.carousel-control(href="#carousel-96764", data-slide="next")
+            span.glyphicon.glyphicon-chevron-right
+    .row.clearfix
+      .col-md-4
+        h2(id="javascript") JavaScript
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-JavaScript") View details >>
+      .col-md-4
+        h2(id="nodejs") Nodejs
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-Nodejs") View details >>
+      .col-md-4
+        h2(id="html") HTML
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-HTML") View details >>
+    .row.clearfix
+      .col-md-4
+        h2(id="css") CSS
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-CSS") View details >>
+      .col-md-4
+        h2(id="java") Java
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-Java") View details >>
+      .col-md-4
+        h2(id="php") PHP
+        p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        p
+          a.btn(href="/blog/show/category/#panel-element-PHP") View details >>
+
+
+script.
+  $(function () {
+    $('#singIn').modal({
+      keyboard: true
+    })
+    $('#singUp').modal({
+      keyboard: true
+    })
+  })
+

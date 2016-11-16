@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-5
+        form.form-horizontal(method="POST", action="/user/signup")
+          //.modal-header
+          //  h2.modal-title(id="myModalLabel2") 注册页面
+          .modal-body
+            .form-group
+              label.col-sm-2.control-label 账号
+              .col-sm-10
+                input.form-control(type="text", id="SignUpUsername", name="user[username]", placeholder="username")
+            .form-group
+              label.col-sm-2.control-label 密码
+              .col-sm-10
+                input.form-control(type="password", id="SignUpPassword", name="user[password]", placeholder="password")
+            .form-group
+              label.col-sm-2.control-label 地址
+              .col-sm-10
+                input.form-control(type="text", id="SignUpAddress", name="user[address]", placeholder="address")
+            .form-group
+              label.col-sm-2.control-label 邮箱
+              .col-sm-10
+                input.form-control(type="text", id="SignUpEmail", name="user[email]", placeholder="email")
+          .modal-footer
+            a.btn.btn-default(href="/") 关闭
+            //button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+            button.btn.btn-success(type="submit") 提交
+

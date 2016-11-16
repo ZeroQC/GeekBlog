@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        ul.nav.nav-tabs
+          li.active
+            a(href="/blog/show/paging/1") 博客
+          li
+            a(href="/blog/show/category") 分类
+          li
+            a(href="/blog/show/new") 添加
+      br
+      br
+      br
+      .col-md-12
+        each blog in blogs
+          .panel.panel-success
+            .panel-heading
+              a(href='/comment/show/' + blog._id)
+                h3.panel-title #{blog.title}
+                  small.pull-right #{blog.category}
+            //.panel-body
+            //  p #{blog.content}
+            .panel-footer
+              span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+              span 作者：#{blog.author}
+              a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+              span.pull-right &nbsp;&nbsp;&nbsp;
+              a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+      .col-md-12
+        ul.pagination
+          li
+            a(href='/blog/show/paging/1') <<
+          li
+            a(href='#') <
+          - for (var i = 1; i <= page.numberOf; i++) {
+          li
+            a(href='/blog/show/paging/' + i) #{i}
+          - }
+          li
+            a(href='#') >
+          li
+            a(href='/blog/show/paging/' + page.pageCount) >>
+        p 总页数：#{page.pageCount}

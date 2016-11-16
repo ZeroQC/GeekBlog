@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-5
+        form.form-horizontal(method="POST", action="/user/signin")
+          //.modal-header
+          //  h2.modal-title(id="myModalLabel") 登录页面
+          .modal-body
+            .form-group
+              label.col-sm-2.control-label 账号
+              .col-sm-10
+                input.form-control(type="text", id="signInUsername", name="user[username]", placeholder="username")
+            .form-group
+              label.col-sm-2.control-label 密码
+              .col-sm-10
+                input.form-control(type="password", id="SignInPassword", name="user[password]", placeholder="password")
+          .modal-footer
+            a.btn.btn-default(href="/") 关闭
+            //button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+            button.btn.btn-success(type="submit") 确认
