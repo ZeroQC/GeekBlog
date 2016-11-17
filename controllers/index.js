@@ -7,8 +7,15 @@ exports.index = function (req, res) {
 };
 
 exports.search = function (req, res) {
+    var reg;
     if (req.query.q) {
-        var reg = new RegExp(req.query.q, 'i');
+        reg = new RegExp(req.query.q, 'i');
+    } else {
+        return res.render('search_result', {
+            title: '搜索结果',
+            blogs: "",
+            message: '搜索内容不能为空'
+        })
     }
     var query = {
         $or: [
@@ -18,12 +25,21 @@ exports.search = function (req, res) {
     };
 
     Blog.find(query, function (err, blogs) {
+        console.log(blogs);
         if (err) console.log(err);
         else {
-            res.render('search_result', {
-                title: '搜索结果',
-                blogs: blogs
-            })
+            if (blogs == "") {
+                res.render('search_result', {
+                    title: '搜索结果',
+                    blogs: blogs,
+                    message: '抱歉，没有找到相关内容'
+                })
+            } else {
+                res.render('search_result', {
+                    title: '搜索结果',
+                    blogs: blogs
+                })
+            }
         }
     })
 };

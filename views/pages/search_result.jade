@@ -4,18 +4,24 @@ block content
   .container
     .row
       .col-md-12
-        each blog in blogs
-          .panel.panel-success
-            .panel-heading
-              a(href='/blog/detail/' + blog._id)
-                h3.panel-title #{blog.title}
-                  small.pull-right.label.label-success #{blog.category}
-            .panel-body
-              p #{blog.content}
-            .panel-footer
-              span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
-              span 作者：
-                a(href='/user/info/' + blog.author) #{blog.author}
-              a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
-              span.pull-right &nbsp;&nbsp;&nbsp;
-              a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+        if (blogs == "")
+          .alert.alert-dismissable.alert-warning
+            button.close(data-dismiss="alert", aria-hidden="true") ×
+            h4 注意！
+            strong= message
+        else
+          each blog in blogs
+            .panel.panel-success
+              .panel-heading
+                a(href='/blog/detail/' + blog._id)
+                  h3.panel-title #{blog.title}
+                    small.pull-right.label.label-success #{blog.category}
+              .panel-body
+                p #{blog.content}
+              .panel-footer
+                span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+                span 作者：
+                  a(href='/user/info/' + blog.author) #{blog.author}
+                a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+                span.pull-right &nbsp;&nbsp;&nbsp;
+                a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
