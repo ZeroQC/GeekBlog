@@ -18,7 +18,7 @@ block content
         .panel-group(id="panel-father")
       - var category = ['HTML', 'CSS', 'Javascript', 'PHP', 'Java', 'Nodejs'];
       - for (var i = 0; i < category.length; i++) {
-      .panel.panel-default
+      .panel.panel-warning
         .panel-heading
           a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
         .panel-collapse.in(id="panel-element-" + category[i])
