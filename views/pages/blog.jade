@@ -34,14 +34,14 @@ block content
         ul.pagination
           li
             a(href='/blog/show/paging/1') <<
-          li
-            a(href='#') <
+          //li TODO 分页的前一页和后一页
+          //  a(href='#') <
           - for (var i = 1; i <= page.numberOf; i++) {
           li
             a(href='/blog/show/paging/' + i) #{i}
           - }
-          li
-            a(href='#') >
+          //li
+          //  a(href='#') >
           li
             a(href='/blog/show/paging/' + page.pageCount) >>
         p 总页数：#{page.pageCount}
