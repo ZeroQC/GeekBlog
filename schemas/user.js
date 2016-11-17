@@ -9,6 +9,10 @@ var UserSchema = new mongoose.Schema({
     password: String,
     address: String,
     email: String,
+    grade: {
+        type: Number,
+        default: 0
+    },
     meta: {
         createAt: {
             type: Date,
