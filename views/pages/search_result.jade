@@ -7,7 +7,7 @@ block content
         each blog in blogs
           .panel.panel-success
             .panel-heading
-              a(href='/comment/show/' + blog._id)
+              a(href='/blog/detail/' + blog._id)
                 h3.panel-title #{blog.title}
                   small.pull-right #{blog.category}
             .panel-body
