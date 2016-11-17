@@ -14,7 +14,8 @@ block content
               p #{blog.content}
             .panel-footer
               span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
-              span 作者：#{blog.author}
+              span 作者：
+                a(href='/user/info/' + blog.author) #{blog.author}
               a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
               span.pull-right &nbsp;&nbsp;&nbsp;
               a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
