@@ -16,10 +16,14 @@ exports.showSignin = function (req, res) {
 
 exports.showUpdate = function (req, res) {
     var username = req.params.username;
-    res.render('user_update', {
-        title: '用户更新页面',
-        username: username
-    })
+    if (username == req.session.user.username) {
+        res.render('user_update', {
+            title: '用户更新页面',
+            username: username
+        })
+    } else {
+        res.render('signin', {title: '请登录您自己的账号，方可更新'})
+    }
 };
 
 exports.update = function (req, res) {

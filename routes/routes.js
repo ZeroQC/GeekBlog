@@ -35,9 +35,10 @@ module.exports = function (app) {
     app.get('/blog/show/category', Blog.showBlogCategory);
     app.get('/blog/show/new', User.checkSignIn, Blog.showBlogNew);
     app.post('/blog/new', Blog.new);
-    app.get('/blog/add/praise/:id', Blog.addPraise);
+    app.get('/blog/add/praise/:id', User.checkSignIn, Blog.addPraise);
     app.get('/blog/show/update', Blog.showBlogUpdate);
     app.post('/blog/update', Blog.updateBlog);
+    app.get('/blog/detail/:id', Comment.showComments);
 
     //Comment
     app.get('/comment/show/:id', User.checkSignIn, Comment.showComments);

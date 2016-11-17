@@ -82,11 +82,15 @@ exports.new = function (req, res) {
 exports.showBlogUpdate = function (req, res) {
     var blog_title = req.query.title;
     var username = req.query.username;
-    res.render('blog_update', {
-        title: '博客更新页面',
-        blog_title: blog_title,
-        username: username
-    })
+    if (username == req.session.user.username) {
+        res.render('blog_update', {
+            title: '博客更新页面',
+            blog_title: blog_title,
+            username: username
+        })
+    } else {
+        res.render('signin', {title: '请登录您自己的账号，方可修改'});
+    }
 };
 
 exports.updateBlog = function (req, res) {
