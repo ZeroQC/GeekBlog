@@ -14,7 +14,6 @@ module.exports = function (app) {
 
     //Index
     app.get('/', Index.index);
-    app.get('/image/:id', Index.detail);
     app.get('/search', Index.search);
 
     //User

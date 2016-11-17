@@ -6,14 +6,6 @@ exports.index = function (req, res) {
     });
 };
 
-exports.detail = function (req, res) {
-    var id = req.params.id;
-    res.render('detail', {
-        title: '详情页',
-        id: id
-    });
-};
-
 exports.search = function (req, res) {
     if (req.query.q) {
         var reg = new RegExp(req.query.q, 'i');
