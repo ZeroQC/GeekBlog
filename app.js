@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(multipart());
 app.use(session({
-    secret: 'nodedemo',
+    secret: 'GeekBlog',
     resave: false,
     saveUninitialized: true
 }));
