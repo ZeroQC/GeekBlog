@@ -12,14 +12,14 @@ block content
           li
             a(href="/blog/show/new") 添加
 
-      .col-md-12
+      .col-md-6
         .panel-group(id="panel-father")
         - var category = ['HTML', 'CSS', 'Javascript', 'PHP', 'Java', 'Nodejs'];
         - for (var i = 0; i < category.length; i++) {
         .panel.panel-warning
           .panel-heading
             a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
-          .panel-collapse.in(id="panel-element-" + category[i])
+          .panel-collapse.collapse(id="panel-element-" + category[i])
             .panel-body
               each blog in blogs
                 if (blog.category == category[i])
