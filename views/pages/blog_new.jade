@@ -18,15 +18,15 @@ block content
         form.form-horizontal(method="POST", action="/blog/new")
           .modal-body
             .form-group
-              label.col-sm-2.control-label 标题
+              label.col-sm-2.control-label 标题：
               .col-sm-10
                 input#title.form-control(type="text", name="blog[title]")
             .form-group
-              label.col-sm-2.control-label 内容
+              label.col-sm-2.control-label 内容：
               .col-sm-10
                 textarea#content.form-control(name="blog[content]", rows="7")
             .form-group
-              label.col-sm-2.control-label 类别
+              label.col-sm-2.control-label 类别：
               .col-sm-10
                 select.form-control(name="blog[category]")
                   option(value="HTML") HTML

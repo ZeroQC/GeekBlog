@@ -1,6 +1,6 @@
 .container
   .row
-    .page-header.clearfix(style="margin-top:60px")
+    .page-header.clearfix(style="margin-top:50px")
       h3= title
       .col-md-4(style="padding-left:0")
         small Geek Geek，好记性不如烂笔头
@@ -49,11 +49,13 @@ nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
       ul.nav.navbar-nav.navbar-right
         if (user.grade > 10)
           li
-            a(href="/user/list/info") 查看用户列表
+            a(href="/user/list/info") 管理用户
           li
             a |
         li
           a(href="/user/info/" + user.username) 欢迎您 ， #{user.username}
+            if (user.grade > 10)
+              span &nbsp;&nbsp;&nbsp;(管理员)
         li
           a |
         li

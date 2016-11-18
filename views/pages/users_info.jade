@@ -4,56 +4,27 @@ block content
   .container
     .row
       .col-md-12
-        .panel.panel-success
-          .panel-heading
-            h3 用户信息列表
-          .panel-body
-            table.table.table-hover.table-bordered
-              thead
-                tr.warning
-                  th _id
-                  th username
-                  th address
-                  th email
-                  th createAt
-                  th updateAt
-                  th 查看
-                  th 删除
-              tbody
-                each user in users
-                  tr
-                    td= user._id
-                    td= user.username
-                    td= user.address
-                    td= user.email
-                    td= moment(user.meta.createAt).format("YYYY/MM/DD HH:mm:ss")
-                    td= moment(user.meta.updateAt).format("YYYY/MM/DD HH:mm:ss")
-                    td
-                      a.btn.btn-primary(href='/user/info/' + user.username) 查看
-                    td
-                      a.btn.btn-danger(href='/user/delete/' + user.username) 删除
-            ul.pagination
-              li
-                a(href="#") Prev
-              li
-                a(href="#") 1
-              li
-                a(href="#") 2
-              li
-                a(href="#") 3
-              li
-                a(href="#") 4
-              li
-                a(href="#") 5
-              li
-                a(href="#") Next
-
-  //.modal.fade(id="delete", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
-  //  .modal-dialog
-  //    .modal-content
-  //      form.form-horizontal(method="GET", action='/user/delete/' + user.username)
-  //        .modal-body
-  //          p 确定删除用户？
-  //        .modal-footer
-  //          button.btn.btn-default(type="button", data-dismiss="modal") 取消
-  //          button.btn.btn-danger(type="submit") 确认
+        table.table.table-hover.table-bordered
+          thead
+            tr.warning
+              th _id
+              th username
+              th address
+              th email
+              th createAt
+              th updateAt
+              th 查看
+              th 删除
+          tbody
+            each user in users
+              tr
+                td= user._id
+                td= user.username
+                td= user.address
+                td= user.email
+                td= moment(user.meta.createAt).format("YYYY/MM/DD HH:mm:ss")
+                td= moment(user.meta.updateAt).format("YYYY/MM/DD HH:mm:ss")
+                td
+                  a.btn.btn-primary(href='/user/info/' + user.username) 查看
+                td
+                  a.btn.btn-danger(href='/user/delete/' + user.username) 删除

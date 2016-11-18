@@ -11,32 +11,30 @@ block content
             a(href="/blog/show/category") 分类
           li
             a(href="/blog/show/new") 添加
-      br
-      br
-      br
+
       .col-md-12
         .panel-group(id="panel-father")
-      - var category = ['HTML', 'CSS', 'Javascript', 'PHP', 'Java', 'Nodejs'];
-      - for (var i = 0; i < category.length; i++) {
-      .panel.panel-warning
-        .panel-heading
-          a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
-        .panel-collapse.in(id="panel-element-" + category[i])
-          .panel-body
-            each blog in blogs
-              if (blog.category == category[i])
-                .panel.panel-success
-                  .panel-heading
-                    a(href='/blog/detail/' + blog._id)
-                      h3.panel-title #{blog.title}
-                        small.pull-right.label.label-success #{blog.category}
-                  //.panel-body
-                  //  p #{blog.content}
-                  .panel-footer
-                    span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
-                    span 作者：
-                      a(href='/user/info/' + blog.author) #{blog.author}
-                    a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
-                    span.pull-right &nbsp;&nbsp;&nbsp;
-                    a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
-      - }
+        - var category = ['HTML', 'CSS', 'Javascript', 'PHP', 'Java', 'Nodejs'];
+        - for (var i = 0; i < category.length; i++) {
+        .panel.panel-warning
+          .panel-heading
+            a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
+          .panel-collapse.in(id="panel-element-" + category[i])
+            .panel-body
+              each blog in blogs
+                if (blog.category == category[i])
+                  .panel.panel-success
+                    .panel-heading
+                      a(href='/blog/detail/' + blog._id)
+                        h3.panel-title #{blog.title}
+                          small.pull-right.label.label-success #{blog.category}
+                    //.panel-body
+                    //  p #{blog.content}
+                    .panel-footer
+                      span 时间： #{moment(blog.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')} &nbsp;&nbsp;&nbsp;
+                      span 作者：
+                        a(href='/user/info/' + blog.author) #{blog.author}
+                      a.pull-right(href='/comment/show/' + blog._id) 评论(#{blog.commentNum})
+                      span.pull-right &nbsp;&nbsp;&nbsp;
+                      a.pull-right(href='/blog/add/praise/' + blog._id) 赞(#{blog.praise})
+        - }

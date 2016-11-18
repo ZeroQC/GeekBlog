@@ -16,14 +16,14 @@ exports.showSignin = function (req, res) {
 
 exports.showUpdate = function (req, res) {
     var username = req.params.username;
-    if (username == req.session.user.username) {
+    // if (username == req.session.user.username) {
         res.render('user_update', {
             title: '用户更新页面',
             username: username
         })
-    } else {
-        res.render('signin', {title: '请登录您自己的账号，方可更新'})
-    }
+    // } else {
+    //     res.render('signin', {title: '请登录您自己的账号，方可更新'})
+    // }
 };
 
 exports.update = function (req, res) {
@@ -155,7 +155,7 @@ exports.userListInfo = function (req, res) {
     User.fetch(function (err, users) {
         if (err) console.log(err);
         res.render('users_info', {
-            title: '用户列表信息',
+            title: '用户管理页',
             users: users
         })
     })
