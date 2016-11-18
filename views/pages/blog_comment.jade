@@ -27,7 +27,8 @@ block content
                   p 评论：#{comment.content}
                 .panel-footer
                   p 时间：#{moment(comment.meta.updateAt).format('YYYY/MM/DD HH:mm:ss')}
-                    span.pull-right by：#{comment.fromName}
+                    span.pull-right by：
+                      a(href='/user/info/' + comment.fromName) #{comment.fromName}
           .panel-footer
             p 当前时间：#{moment(Date.now()).format('YYYY/MM/DD HH:mm:ss')}
               a.btn.btn-primary.pull-right(href='#', data-toggle="modal", data-target="#addComment") 评论

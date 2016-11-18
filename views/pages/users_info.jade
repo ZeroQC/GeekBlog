@@ -7,7 +7,6 @@ block content
         table.table.table-hover.table-bordered
           thead
             tr.warning
-              th _id
               th username
               th address
               th email
@@ -18,7 +17,6 @@ block content
           tbody
             each user in users
               tr
-                td= user._id
                 td= user.username
                 td= user.address
                 td= user.email
