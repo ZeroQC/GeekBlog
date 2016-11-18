@@ -22,7 +22,7 @@ module.exports = function (app) {
     app.post('/user/update', User.update);
     app.get('/signup', User.showSignup);
     app.get('/signin', User.showSignin);
-    app.get('/user/show/update/:username', User.showUpdate);
+    app.get('/user/show/update/:username', User.checkSignIn, User.showUpdate);
     app.get('/logout', User.logout);
     app.get('/user/info/:username', User.userInfo);
     app.get('/user/list/info', User.userListInfo);
@@ -35,7 +35,7 @@ module.exports = function (app) {
     app.get('/blog/show/new', User.checkSignIn, Blog.showBlogNew);
     app.post('/blog/new', Blog.new);
     app.get('/blog/add/praise/:id', User.checkSignIn, Blog.addPraise);
-    app.get('/blog/show/update', Blog.showBlogUpdate);
+    app.get('/blog/show/update', User.checkSignIn, Blog.showBlogUpdate);
     app.post('/blog/update', Blog.updateBlog);
     app.get('/blog/detail/:id', Comment.showComments);
 
