@@ -25,14 +25,13 @@ exports.search = function (req, res) {
     };
 
     Blog.find(query, function (err, blogs) {
-        console.log(blogs);
         if (err) console.log(err);
         else {
             if (blogs == "") {
                 res.render('search_result', {
                     title: '搜索结果',
                     blogs: blogs,
-                    message: '抱歉，没有找到相关内容'
+                    message: '抱歉，没有找到和' + req.query.q + '有关的内容'
                 })
             } else {
                 res.render('search_result', {
