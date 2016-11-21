@@ -31,7 +31,7 @@ exports.search = function (req, res) {
                 res.render('search_result', {
                     title: '搜索结果',
                     blogs: blogs,
-                    message: '抱歉，没有找到和' + req.query.q + '有关的内容'
+                    message: '抱歉，没有找到和"' + req.query.q + '"有关的内容'
                 })
             } else {
                 res.render('search_result', {
