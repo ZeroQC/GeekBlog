@@ -11,6 +11,7 @@ var multipart = require('connect-multiparty');
 var app = express();
 
 var dbUrl = 'mongodb://localhost/nodedb';
+// var dbUrl = 'mongodb://192.168.43.212/nodedb';
 mongoose.connect(dbUrl);
 
 // view engine setup

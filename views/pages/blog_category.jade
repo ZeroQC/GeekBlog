@@ -19,7 +19,7 @@ block content
         .panel.panel-warning
           .panel-heading
             a.panel-title(data-toggle="collapse", data-parent="#panel-father", href="#panel-element-" + category[i]) #{category[i]}
-          .panel-collapse.collapse(id="panel-element-" + category[i])
+          .panel-collapse.in(id="panel-element-" + category[i])
             .panel-body
               each blog in blogs
                 if (blog.category == category[i])

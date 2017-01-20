@@ -6,7 +6,7 @@ block content
       .col-md-12
         .panel.panel-success
           .panel-heading
-            h3.panel-title 我的信息
+            h3.panel-title #{_user.username}的信息
           .panel-body
             dl.dl-horizontal
               dt 账号 :
@@ -25,7 +25,7 @@ block content
 
         .panel.panel-success
           .panel-heading
-            h4.panel-title 我的博客
+            h4.panel-title #{_user.username}的博客
           .panel-body
             .col-md-12
               each blog in blogs

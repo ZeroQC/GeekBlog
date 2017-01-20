@@ -42,9 +42,9 @@ block content
             h4.modal-title(id="myModalLabel") 添加评论
           .modal-body
             .form-group
-              label.col-sm-2.control-label 博客ID
+              //label.col-sm-2.control-label 博客ID
               .col-sm-10
-                input.form-control(type="text", id="blogId", name="blog[_id]", value="#{blog._id}", readonly="true")
+                input.form-control(type="hidden", id="blogId", name="blog[_id]", value="#{blog._id}", readonly="true")
             .form-group
               label.col-sm-2.control-label 博客标题
               .col-sm-10
