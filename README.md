@@ -2,5 +2,3 @@
 ### 使用Node.js + Express + Jade + Bootstrap搭建一个简易博客网站
 
 develop branch
-
-testing branch
